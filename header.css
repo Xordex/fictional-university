@@ -1,0 +1,10 @@
+.menu .sub-menu li{
+    padding: 0;
+    float: none;
+    margin: 5px 0;
+    display: none;
+}
+
+.menu li:hover .sub-menu li{
+    display: block;
+}
