@@ -8,3 +8,7 @@
 .menu li:hover .sub-menu li{
     display: block;
 }
+
+.aftereventcol {
+    background-color: brown;
+}

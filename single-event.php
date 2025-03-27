@@ -3,7 +3,9 @@
     get_header();
 
     while(have_posts()) {
-        the_post(); ?>
+        the_post();
+        $eventDate = new DateTime(get_field('event_date'));
+        ?>
     <div class="page-banner">
       <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg');?>)"></div>
       <div class="page-banner__content container container--narrow">
@@ -23,8 +25,8 @@
         
       </div>
       <a class="event-summary__date t-center" style="left: inherit;right:5%; top: -25%;">
-              <span class="event-summary__month"><?php the_time('M'); ?></span>
-              <span class="event-summary__day"><?php the_time('d'); ?></span>
+              <span class="event-summary__month"><?php echo $eventDate->format('M'); ?></span>
+              <span class="event-summary__day"><?php echo $eventDate->format('d'); ?></span>
             </a>
 
         <div class="generic-content">
