@@ -32,6 +32,20 @@
         <div class="generic-content">
             <?php the_content(); ?>
         </div>
+        <?php $rel = get_field('related_programs');
+        if($rel) { ?>
+        <hr class='section-break'>
+        <h2 class="headline headline--medium">Related Programs</h2>
+        <ul class="link-list min-list">
+        <?php
+        foreach($rel as $elo) { ?>
+          <li><a href="<?php the_permalink($elo);?>"><?php echo get_the_title($elo); ?></a></li>
+          <?php
+        }
+      }
+           ?>
+        </ul>
+
     </div>
     <?php }
 
