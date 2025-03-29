@@ -32,10 +32,49 @@
         <div class="generic-content">
             <?php the_content(); ?>
         </div>
-        <hr>
+        
+        
+        <?php 
+            $relatedProfs = new WP_Query(array(
+             'posts_per_page' => -1,
+              'post_type' => 'professor',
+              'orderby' => 'title',
+              'order' => 'ASC',
+              'meta_query' => array(
+                array(
+                  'key' => 'related_programs',
+                  'compare' => 'LIKE',
+                  'value' => '"'. get_the_ID() . '"'
+                )
+              )
+            ));
+            
+            if($relatedProfs->have_posts()) {
+
+            echo '<hr class="section-break">';
+            echo '<h2 class="headline headline--medium">Professors of '. get_the_title(). '</h2>';
+            echo '<ul class="professor-cards">';
+
+            while($relatedProfs-> have_posts()) {
+              $relatedProfs-> the_post();
+
+          ?>
+    
+            <li class="professor-card__list-item">
+                 <a href="<?php the_permalink(); ?>" class="professor-card">
+                    <img class="professor-card__image" src="<?php the_post_thumbnail_url('professorLandscape');?>" alt="">
+                    <span class="professor-card__name"><?php the_title(); ?></span>
+                 </a>
+            </li>
+            <?php
+                }
+                echo '</ul>';
+            }
+            
+            wp_reset_postdata();
+            ?>
 
         <?php 
-            $today = date('Ymd');
             $relatedPosts = new WP_Query(array(
              'posts_per_page' => 2,
               'post_type' => 'event',
@@ -50,6 +89,12 @@
                 )
               )
             ));
+            
+            if($relatedPosts->have_posts()) {
+
+            echo '<hr class="section-break">';
+            echo '<h2 class="headline headline--medium">Upcoming '. get_the_title(). ' Events</h2>';
+            
 
             while($relatedPosts-> have_posts()) {
               $relatedPosts-> the_post();
@@ -69,7 +114,10 @@
               <p><?php if(has_excerpt()) {echo get_the_excerpt();} else {echo wp_trim_words(get_the_content(), 12);} ?> <a href="<?php echo get_permalink();?>" class="nu gray">Learn more</a></p>
             </div>
             </div>
-            <?php } ?>
+            <?php
+                }
+            }
+            ?>
 
 
     </div>
