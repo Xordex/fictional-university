@@ -1,5 +1,38 @@
 <?php
 
+function pageBanner($args = NULL) {
+    
+    if(!isset($args['title'])) {
+        $args['title'] = get_the_title();
+    }
+
+    if(!isset($args['subtitle'])) {
+        $args['subtitle'] = get_field('page_banner_subtitle');
+    }
+
+    if(!isset($args['image'])) {
+        if(get_field('page_banner_background_image')){
+            $args['image'] = get_field('page_banner_background_image')['url'];
+        } else {
+            $args['image'] = "https://images.pexels.com/photos/6317499/pexels-photo-6317499.jpeg";
+        }
+    }
+
+    ?>
+
+<div class="page-banner">
+      <div class="page-banner__bg-image" style="background-image: url(<?php echo $args['image']; ?>)"></div>
+      <div class="page-banner__content container container--narrow">
+        <h1 class="page-banner__title"><?php echo $args['title']; ?></h1>
+        <div class="page-banner__intro">
+          <p><?php echo $args['subtitle'];?></p>
+        </div>
+      </div>
+    </div>
+
+    <?php
+}
+
 function university_files() {
     wp_enqueue_script('main-university-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -22,8 +55,6 @@ function university_features() {
     add_image_size('pageBanner', 1500, 350, true);
 }
 
-
-
 add_action('after_setup_theme', 'university_features');
 
 function university_adjust_queries($query) {
@@ -31,7 +62,6 @@ function university_adjust_queries($query) {
         $query->set('meta_key', 'event_date');
         $query->set('orderby', 'meta_value_num');
         $query->set('order', 'asc');
-        $query->set('meta_query', array(array('key' => 'event_date', 'compare' => ">=", 'value' => date('Ymd'), 'type' => 'numeric')));
     }
 
     if(!is_admin() AND is_post_type_archive('program') AND is_main_query()) {
