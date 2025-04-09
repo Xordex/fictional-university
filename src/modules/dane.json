@@ -1,0 +1,342 @@
+[
+    {
+        "id": 62,
+        "date": "2025-03-29T09:55:25",
+        "date_gmt": "2025-03-29T09:55:25",
+        "guid": {
+            "rendered": "https:\/\/test.local\/?post_type=event&#038;p=62"
+        },
+        "modified": "2025-03-29T11:16:46",
+        "modified_gmt": "2025-03-29T11:16:46",
+        "slug": "new-year-2016",
+        "status": "publish",
+        "type": "event",
+        "link": "https:\/\/test.local\/events\/new-year-2016\/",
+        "title": {
+            "rendered": "New Year 2016"
+        },
+        "content": {
+            "rendered": "<p>ergyherhertherthrt hrt htr hsrth srtdf hrfth rft<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>ergyherhertherthrt hrt htr hsrth srtdf hrfth rft<\/p>\n",
+            "protected": false
+        },
+        "template": "",
+        "class_list": [
+            "post-62",
+            "event",
+            "type-event",
+            "status-publish",
+            "hentry"
+        ],
+        "acf": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event\/62",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/types\/event"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/media?parent=62"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 58,
+        "date": "2025-03-27T18:37:30",
+        "date_gmt": "2025-03-27T18:37:30",
+        "guid": {
+            "rendered": "https:\/\/test.local\/?post_type=event&#038;p=58"
+        },
+        "modified": "2025-03-27T18:37:30",
+        "modified_gmt": "2025-03-27T18:37:30",
+        "slug": "winter-study-night",
+        "status": "publish",
+        "type": "event",
+        "link": "https:\/\/test.local\/events\/winter-study-night\/",
+        "title": {
+            "rendered": "Winter Study Night"
+        },
+        "content": {
+            "rendered": "<p>Loren miterhjgy ueiohrgiu erbgierg er hert<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Loren miterhjgy ueiohrgiu erbgierg er hert<\/p>\n",
+            "protected": false
+        },
+        "template": "",
+        "class_list": [
+            "post-58",
+            "event",
+            "type-event",
+            "status-publish",
+            "hentry"
+        ],
+        "acf": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event\/58",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/types\/event"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/media?parent=58"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 51,
+        "date": "2025-03-21T11:11:08",
+        "date_gmt": "2025-03-21T11:11:08",
+        "guid": {
+            "rendered": "https:\/\/test.local\/?post_type=event&#038;p=51"
+        },
+        "modified": "2025-03-27T16:57:30",
+        "modified_gmt": "2025-03-27T16:57:30",
+        "slug": "poetry-day",
+        "status": "publish",
+        "type": "event",
+        "link": "https:\/\/test.local\/events\/poetry-day\/",
+        "title": {
+            "rendered": "Poetry Day"
+        },
+        "content": {
+            "rendered": "<div>\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ex necessitatibus? Dolores facere sint alias, suscipit officia excepturi dolorem consequatur vero libero iure incidunt debitis nemo quibusdam harum quia asperiores!<\/div>\n<\/div>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Poetry will be amazing.<\/p>\n",
+            "protected": false
+        },
+        "template": "",
+        "class_list": [
+            "post-51",
+            "event",
+            "type-event",
+            "status-publish",
+            "hentry"
+        ],
+        "acf": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event\/51",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/types\/event"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/media?parent=51"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 50,
+        "date": "2025-03-21T11:11:02",
+        "date_gmt": "2025-03-21T11:11:02",
+        "guid": {
+            "rendered": "https:\/\/test.local\/?post_type=event&#038;p=50"
+        },
+        "modified": "2025-03-29T10:56:17",
+        "modified_gmt": "2025-03-29T10:56:17",
+        "slug": "the-science-of-cats",
+        "status": "publish",
+        "type": "event",
+        "link": "https:\/\/test.local\/events\/the-science-of-cats\/",
+        "title": {
+            "rendered": "The Science of Cats"
+        },
+        "content": {
+            "rendered": "<div>\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ex necessitatibus? Dolores facere sint alias, suscipit officia excepturi dolorem consequatur vero libero iure incidunt debitis nemo quibusdam harum quia asperiores!<\/div>\n<\/div>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ex necessitatibus? Dolores facere sint alias, suscipit officia excepturi dolorem consequatur vero libero iure incidunt debitis nemo quibusdam harum quia asperiores!<\/p>\n",
+            "protected": false
+        },
+        "template": "",
+        "class_list": [
+            "post-50",
+            "event",
+            "type-event",
+            "status-publish",
+            "hentry"
+        ],
+        "acf": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event\/50",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/types\/event"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/media?parent=50"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 49,
+        "date": "2025-03-21T11:10:53",
+        "date_gmt": "2025-03-21T11:10:53",
+        "guid": {
+            "rendered": "https:\/\/test.local\/?post_type=event&#038;p=49"
+        },
+        "modified": "2025-03-27T17:07:21",
+        "modified_gmt": "2025-03-27T17:07:21",
+        "slug": "math-meetup",
+        "status": "publish",
+        "type": "event",
+        "link": "https:\/\/test.local\/events\/math-meetup\/",
+        "title": {
+            "rendered": "Math Meetup"
+        },
+        "content": {
+            "rendered": "<div>\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ex necessitatibus? Dolores facere sint alias, suscipit officia excepturi dolorem consequatur vero libero iure incidunt debitis nemo quibusdam harum quia asperiores!<\/div>\n<\/div>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ex necessitatibus? Dolores facere sint alias, suscipit officia excepturi dolorem consequatur vero libero iure incidunt debitis nemo quibusdam harum quia asperiores!<\/p>\n",
+            "protected": false
+        },
+        "template": "",
+        "class_list": [
+            "post-49",
+            "event",
+            "type-event",
+            "status-publish",
+            "hentry"
+        ],
+        "acf": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event\/49",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/event"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/types\/event"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/test.local\/wp-json\/wp\/v2\/media?parent=49"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]

@@ -4028,8 +4028,9 @@ __webpack_require__.r(__webpack_exports__);
 class Search {
   // 1. Describe and create/initiate our object
   constructor() {
+    this.addSearchHTML();
     this.nakladka = document.querySelector(".search-overlay");
-    this.searchIcon = document.querySelector(".js-search-trigger");
+    this.searchIcon = document.querySelectorAll(".js-search-trigger");
     this.searchCloseBtn = document.querySelector(".search-overlay__close");
     this.inputSearch = document.querySelector(".search-term");
     this.resultsDiv = document.querySelector("#search-overlay__results");
@@ -4042,7 +4043,9 @@ class Search {
 
   // 2. Events
   events() {
-    this.searchIcon.addEventListener("click", this.openOverlay.bind(this));
+    this.searchIcon.forEach(e => {
+      e.addEventListener("click", this.openOverlay.bind(this));
+    });
     this.searchCloseBtn.addEventListener("click", this.closeOverlay.bind(this));
     document.addEventListener("keyup", this.keyPressDispatcher.bind(this));
     this.inputSearch.addEventListener("keyup", this.typingLogic.bind(this));
@@ -4057,7 +4060,7 @@ class Search {
           this.resultsDiv.innerHTML = '<div class="spinner-loader"></div>';
           this.isSpinnerVisible = true;
         }
-        this.typingTimer = setTimeout(this.getResults.bind(this), 1000);
+        this.typingTimer = setTimeout(this.getResults.bind(this), 750);
       } else {
         this.resultsDiv.innerHTML = "Wpisz więcej...";
         this.isSpinnerVisible = false;
@@ -4066,8 +4069,20 @@ class Search {
     this.previousValue = this.inputSearch.value;
   }
   getResults() {
-    this.isSpinnerVisible = false;
-    this.resultsDiv.innerHTML = "Imagine results";
+    fetch(universityData.root_url + `/wp-json/wp/v2/posts?search=${this.inputSearch.value}`).then(response => response.json()).then(data => {
+      this.resultsDiv.innerHTML = `
+                    <h2 class="search-overlay__section-title">Search Results</h2>
+                    ${data.length > 0 ? `
+                        <ul class="link-list min-list">
+                        ${data.map(e => `<li><a href="${e.link}">${e.title.rendered}</a></li>`).join("")}
+                        
+                        ` : "<p>Brak wyników dla tego zapytania.</p>"}
+                    </ul>
+                `;
+      this.isSpinnerVisible = false;
+    }).catch(error => {
+      this.resultsDiv.innerHTML = "Error: " + error;
+    });
   }
   keyPressDispatcher(ClickedBtn) {
     if (ClickedBtn.key == "Escape" && this.isOverlayOpen) this.closeOverlay();
@@ -4075,12 +4090,33 @@ class Search {
   openOverlay() {
     this.nakladka.classList.add("search-overlay--active");
     document.body.classList.add("body-no-scroll");
+    setTimeout(() => this.inputSearch.focus(), 301);
     this.isOverlayOpen = true;
   }
   closeOverlay() {
     this.nakladka.classList.remove("search-overlay--active");
     document.body.classList.remove("body-no-scroll");
     this.isOverlayOpen = false;
+    this.inputSearch.value = '';
+    this.resultsDiv.innerHTML = '';
+  }
+  addSearchHTML() {
+    document.querySelector("body").innerHTML += `
+            <div class="search-overlay">
+          <div class="search-overlay__top">
+            <div class="container">
+              <i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
+              <input type="text" class="search-term" placeholder="What are you looking for?">
+              <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="container">
+            <div id="search-overlay__results">Hello 123</div>
+          </div>
+
+       </div>
+            `;
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
