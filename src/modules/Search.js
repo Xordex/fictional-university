@@ -45,25 +45,44 @@ class Search {
         this.previousValue = this.inputSearch.value;
     }
 
-    getResults() {
+    async getResults() {
 
-        fetch(universityData.root_url + `/wp-json/wp/v2/posts?search=${this.inputSearch.value}`)
-            .then(response => response.json())
-            .then(data => {
-                this.resultsDiv.innerHTML = `
+        try {
+            const endpoints = ["posts", "pages", "event", "professor", "program", "campus"];
+            let results = [];
+            for (const endpoint of endpoints) {
+                let response = await fetch(`${universityData.root_url}/wp-json/wp/v2/${endpoint}?search=${this.inputSearch.value}`);
+                const resultsjson = await response.json();
+                results = results.concat(resultsjson);
+            }
+
+            // const posts = await fetch(universityData.root_url + `/wp-json/wp/v2/posts?search=${this.inputSearch.value}`);
+            // const postsjson = await posts.json();
+            // const pages = await fetch(universityData.root_url + `/wp-json/wp/v2/pages?search=${this.inputSearch.value}`);
+            // const pagesjson = await pages.json();
+            // const event = await fetch(universityData.root_url + `/wp-json/wp/v2/event?search=${this.inputSearch.value}`);
+            // const eventjason = await event.json();
+            // const professor = await fetch(universityData.root_url + `/wp-json/wp/v2/professor?search=${this.inputSearch.value}`);
+            // const professorjason = await professor.json();
+            // const program = await fetch(universityData.root_url + `/wp-json/wp/v2/program?search=${this.inputSearch.value}`);
+            // const programjson = await program.json();
+            // const campus = await fetch(universityData.root_url + `/wp-json/wp/v2/campus?search=${this.inputSearch.value}`);
+            // const campusejson = await campus.json();
+
+            // let results = postsjson.concat(pagesjson).concat(eventjason).concat(professorjason).concat(programjson).concat(campusejson);
+            this.resultsDiv.innerHTML = `
                     <h2 class="search-overlay__section-title">Search Results</h2>
-                    ${data.length > 0 ? `
+                    ${results.length > 0 ? `
                         <ul class="link-list min-list">
-                        ${data.map(e => `<li><a href="${e.link}">${e.title.rendered}</a></li>`).join("")}
-                        
+                        ${results.map(e => `<li><a href="${e.link}">${e.title.rendered}</a></li>`).join("")}
+                        </ul>
                         ` : "<p>Brak wyników dla tego zapytania.</p>"}
-                    </ul>
-                `;
-                this.isSpinnerVisible = false;
-            })
-            .catch(error => {
-                this.resultsDiv.innerHTML = "Error: " + error;
-            })
+                        `;
+
+            this.isSpinnerVisible = false;
+        } catch (error) {
+            this.resultsDiv.innerHTML = error.message;
+        }
     }
 
     keyPressDispatcher(ClickedBtn) {
