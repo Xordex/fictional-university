@@ -74,7 +74,7 @@ class Search {
                     <h2 class="search-overlay__section-title">Search Results</h2>
                     ${results.length > 0 ? `
                         <ul class="link-list min-list">
-                        ${results.map(e => `<li><a href="${e.link}">${e.title.rendered}</a></li>`).join("")}
+                        ${results.map(e => `<li><a href="${e.link}">${e.title.rendered}</a> ${e.type == 'post' ? `by ${e.authorName}</li>` : ''}`).join("")}
                         </ul>
                         ` : "<p>Brak wyników dla tego zapytania.</p>"}
                         `;
@@ -117,7 +117,7 @@ class Search {
           </div>
 
           <div class="container">
-            <div id="search-overlay__results">Hello 123</div>
+            <div id="search-overlay__results"></div>
           </div>
 
        </div>
