@@ -4093,9 +4093,13 @@ class Search {
                     <h2 class="search-overlay__section-title">Professors</h2>
                     ${data.professors.length > 0 ? `
                         <ul class="link-list min-list">
-                        ${data.professors.map(e => `<li><a href="${e.permalink}">${e.title}</a> ${e.postType == 'post' ? `by ${e.authorName}</li>` : ''}`).join("")}
-                        </ul>
-                        ` : `<p>Brak profesorów dla tego zapytania. <a href="${universityData.root_url}/professors">Zobacz wszystkich profesorów</a></p>`}  
+                        ${data.professors.map(e => `<li class="professor-card__list-item">
+                            <a href="${e.permalink}" class="professor-card">
+                                <img class="professor-card__image" src="${e.thumbnail}" alt="">
+                                <span class="professor-card__name">${e.title}</span>
+                            </a>
+                        </li>`).join("")}
+                        </ul>` : `<p>Brak profesorów dla tego zapytania. <a href="${universityData.root_url}/professors">Zobacz wszystkich profesorów</a></p>`}  
                 </div>
                 <div class="one-third">
                     <h2 class="search-overlay__section-title">Campuses</h2>
@@ -4107,8 +4111,19 @@ class Search {
 
                     <h2 class="search-overlay__section-title">Events</h2>
                     ${data.events.length > 0 ? `
-                        <ul class="link-list min-list">
-                        ${data.events.map(e => `<li><a href="${e.permalink}">${e.title}</a> ${e.postType == 'post' ? `by ${e.authorName}</li>` : ''}`).join("")}
+                        <ul class="min-list">
+                        ${data.events.map(e => `
+                        <div class="event-summary">
+            <a class="event-summary__date t-center" href="${e.permalink}">
+              <span class="event-summary__month">${e.month}</span>
+              <span class="event-summary__day">${e.day}</span>
+            </a>
+            <div class="event-summary__content">
+              <h5 class="event-summary__title headline headline--tiny"><a href="${e.permalink}">${e.title}</a></h5>
+              <p>${e.excerpt} <a href="${e.permalink}" class="nu gray">Learn more</a></p>
+            </div>
+            </div>
+                        `).join("")}
                         </ul>
                         ` : `<p>Brak wydarzeń dla tego zapytania. <a href="${universityData.root_url}/events">Zobacz wszystkie wydarzenia</a></p>`}   
                 </div>
