@@ -4176,6 +4176,7 @@ class Search {
     document.body.classList.add("body-no-scroll");
     setTimeout(() => this.inputSearch.focus(), 301);
     this.isOverlayOpen = true;
+    event.preventDefault();
   }
   closeOverlay() {
     this.nakladka.classList.remove("search-overlay--active");

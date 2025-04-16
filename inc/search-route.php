@@ -45,9 +45,20 @@ function universitySearchResults($data) {
         }
 
         if(get_post_type() == "program") {
+            $relatedCampuses = get_field('related_campuses');
+            if($relatedCampuses) {
+                foreach($relatedCampuses as $item) {
+                    array_push($results['campuses'], array(
+                        'title' => get_the_title($item),
+                        'permalink' => get_the_permalink($item)
+                    ));
+                }
+            }
+
             array_push($results['programs'], array(
                 'title' => get_the_title(),
-                'permalink' => get_the_permalink()
+                'permalink' => get_the_permalink(),
+                'postid' => get_the_ID()
             ));
         }
 
@@ -74,15 +85,21 @@ function universitySearchResults($data) {
 
     }
 
+    if($results['programs']) {
+
+    $programsMetaQuery = array('relation' => 'OR');
+    foreach($results['programs'] as $item) {
+        array_push($programsMetaQuery, array(
+            'key' => 'related_programs',
+            'compare' => 'LIKE',
+            'value' => '"' . $item['postid'] . '"'
+        ) );
+    }
+
+
     $programRelationshipQuery = new WP_Query(array(
-        'post_type' => 'professor',
-        'meta_query' => array(
-            array(
-                'key' => 'related_programs',
-                'compare' => 'LIKE',
-                'value' => '"66"'
-            )
-        )
+        'post_type' => array('professor', 'event'),
+        'meta_query' => $programsMetaQuery
             ));
 
             while($programRelationshipQuery->have_posts()) {
@@ -96,10 +113,27 @@ function universitySearchResults($data) {
                         'thumbnail' => get_the_post_thumbnail_url(0, 'professorLandscape')
                     ));
                 }
+
+                if(get_post_type() == "event") {
+                    $descevent = null;
+                    if(has_excerpt()) {$descevent = get_the_excerpt();} else {$descevent = wp_trim_words(get_the_content(), 12);}
+
+                    array_push($results['events'], array(
+                        'title' => get_the_title(),
+                        'permalink' => get_the_permalink(),
+                        'month' => (new DateTime(get_field('event_date')))->format('M'),
+                        'day' => (new DateTime(get_field('event_date')))->format('d'),
+                        'excerpt' => $descevent
+                    ));
+                        }
             }
 
     $results['professors'] = array_values(array_unique($results['professors'], SORT_REGULAR));
-    
+    $results['events'] = array_values(array_unique($results['events'], SORT_REGULAR));
+
+    }
+
+
     return $results;
 
 }
